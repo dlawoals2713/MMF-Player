@@ -41,12 +41,9 @@ import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
 import de.dlyt.yanndroid.oneui.dialog.ProgressDialog;
 
 public class MMFPlayerActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
-
     private static final int PICK_MMF_FILE = 1;
-
-    // UI Components
-    private TextInputLayout sampleRateInputLayout;
-    private AutoCompleteTextView sampleRateAutoComplete;
+    
+    //I Hate Yamaha!!!! AHHHHHHHHHHHHHHHHHH
     private ImageButton initButton;
     private ImageButton playButton;
     private ImageButton stopButton;
@@ -57,14 +54,12 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     private SeekBar volumeSeekBar;
     private LinearLayout content;
     
-    // Metadata Views
     private TextView titleTextView;
     private TextView artistTextView;
     private TextView copyrightTextView;
     private TextView genreTextView;
     private TextView miscTextView;
     
-    // Player
     private EmuSmw7 emuSmw7;
     private int sampleRate = 22050;
     private Handler handler = new Handler();
@@ -80,10 +75,10 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     private boolean isUpdating = false;
     
     private de.dlyt.yanndroid.oneui.dialog.ProgressDialog dialog;
-    private Context context;// ExecutorService 추가 (클래스 변수로)
+    private Context context;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private Intent intent = new Intent();
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,38 +90,28 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
             }, 
             1);
-		sp = getSharedPreferences("setting", Activity.MODE_PRIVATE);
+	    sp = getSharedPreferences("setting", Activity.MODE_PRIVATE);
         initUI();
         emuSmw7 = new EmuSmw7();
         context = this;
     }
-
+    
     private void initUI() {
         content = findViewById(R.id.content);
         content.setClipChildren(false);
         content.setClipToPadding(false);
         
-        // Sample rate dropdown
-        sampleRateInputLayout = findViewById(R.id.sample_rate_input_layout);
-        sampleRateAutoComplete = findViewById(R.id.spinner_sample_rate);
-        
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.sample_rates, android.R.layout.simple_dropdown_item_1line);
-        sampleRateAutoComplete.setAdapter(adapter);
-        sampleRateAutoComplete.setText(sp.getString("sr", "22050") + "Hz", false);
         sampleRate = Integer.parseInt(sp.getString("sr", "22050"));
-        // File selection
+        
         fileNameTextView = findViewById(R.id.text_file_name);
         fileNameTextView.setText(currentFileName);
         
-        // Metadata views
         titleTextView = findViewById(R.id.text_title);
         artistTextView = findViewById(R.id.text_artist);
         copyrightTextView = findViewById(R.id.text_copyright);
         genreTextView = findViewById(R.id.text_genre);
         miscTextView = findViewById(R.id.text_misc);
-
-        // Control buttons
+    
         initButton = findViewById(R.id.button_init);
         playButton = findViewById(R.id.button_play);
         stopButton = findViewById(R.id.button_stop);
@@ -136,8 +121,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         playButton.setOnClickListener(this);
         stopButton.setOnClickListener(this);
         releaseButton.setOnClickListener(this);
-
-        // SeekBars
+    
         progressSeekBar = findViewById(R.id.seekbar_progress);
         progressSeekBar.setEnabled(false);
         volumeSeekBar = findViewById(R.id.seekbar_volume);
@@ -148,7 +132,6 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         timeTextView = findViewById(R.id.text_time);
         
         toolbarLayout = findViewById(R.id.toolbar_view);
-        toolbarLayout.setNavigationButtonOnClickListener(view -> onBackPressed());
         toolbarLayout.inflateToolbarMenu(R.menu.player);
         toolbarLayout.getToolbarMenu().findItem(R.id.settings).setTitle("설정");
         toolbarLayout.setOnToolbarMenuItemClickListener(item -> {
@@ -165,14 +148,14 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         });
         updateButtonStates();
     }
-
+    
     @Override
     public void onClick(View v) {
         int id = v.getId();
         
         if (id == R.id.button_init) {
-            progressDialogCircleOnly();
-            String rateText = sampleRateAutoComplete.getText().toString().replace("Hz", "").trim();
+            //progressDialogCircleOnly();
+            String rateText = String.valueOf(sampleRate).trim();
             sp.edit().putString("sr", rateText).apply();
         
             try {
@@ -181,12 +164,12 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 if (sampleRate > 48000) sampleRate = 48000;
         
                 // 기존 작업이 있으면 취소
-                if (!executorService.isShutdown()) {
+                /*if (!executorService.isShutdown()) {
                     executorService.shutdownNow();
                 }
                 executorService = Executors.newSingleThreadExecutor();
         
-                executorService.execute(() -> {
+                executorService.execute(() -> {*/
                     try {
                         int bufferSize = AudioTrack.getMinBufferSize(sampleRate,
                                 AudioFormat.CHANNEL_OUT_STEREO,
@@ -207,7 +190,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                             } else {
                                 Toast.makeText(MMFPlayerActivity.this, "초기화 실패", Toast.LENGTH_SHORT).show();
                             }
-                            dialog.dismiss();
+                            //dialog.dismiss();
                         });
                     } catch (Exception e) {
                         runOnUiThread(() -> {
@@ -215,11 +198,11 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                             dialog.dismiss();
                         });
                     }
-                });
+            // });
         
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "유효한 샘플 레이트를 입력하세요", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+                //dialog.dismiss();
             }
         } else if (id == R.id.button_play) {
             if (mmfData == null) {
@@ -245,7 +228,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             updateButtonStates();
         }
     }
-
+    
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -292,7 +275,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             }
         }
     }
-
+    
     private void updateMetadataDisplay() {
         if (dataParser != null) {
             titleTextView.setText("제목: " + (dataParser.getTitle().isEmpty() ? "알 수 없음" : dataParser.getTitle()));
@@ -308,7 +291,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             miscTextView.setText("기타 정보: 알 수 없음");
         }
     }
-
+    
     private String getFileName(Uri uri) {
         String result = null;
         if (uri.getScheme().equals("content")) {
@@ -330,7 +313,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         }
         return result;
     }
-
+    
     private void updateButtonStates() {
         if (emuSmw7 == null) {
             int cardBackground = getResources().getColor(R.color.cardBackground);
@@ -343,15 +326,12 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         
         long state = emuSmw7.c();
         
-        // 색상 리소스 미리 로드 (성능 최적화)
         int primaryColor = getResources().getColor(R.color.primaryColor);
         int cardBackground = getResources().getColor(R.color.cardBackground);
         int errorColor = getResources().getColor(R.color.errorColor);
         
-        // 모든 버튼 기본 상태 초기화
         resetButtons(cardBackground);
         
-        // 상태별 처리
         switch ((int) state) {
             case 0:
                 initButton.setEnabled(true);
@@ -390,7 +370,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         releaseButton.setEnabled(false);
         releaseButton.setImageTintList(defaultTint);
     }
-
+    
     private void startPlaybackUpdates() {
         stopPlaybackUpdates();
         isUpdating = true;
@@ -406,20 +386,17 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                         progressSeekBar.setMax((int) length);
                         progressSeekBar.setProgress((int) position);
                         
-                        // 시간 표시 (예: 01:23 / 03:45)
                         timeTextView.setText(
                                 formatTime(position) + " / " + formatTime(length));
                     }
                 }
                 
-                // 다음 프레임 요청
                 if (isUpdating) {
                     Choreographer.getInstance().postFrameCallback(this);
                 }
             }
         };
         
-        // 첫 번째 프레임 요청
         Choreographer.getInstance().postFrameCallback(frameCallback);
     }
     
@@ -430,38 +407,38 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             frameCallback = null;
         }
     }
-
+    
     private String formatTime(long milliseconds) {
         int seconds = (int) (milliseconds / 1000);
         int minutes = seconds / 60;
         seconds = seconds % 60;
         return String.format("%02d:%02d", minutes, seconds);
     }
-
-
+    
+    
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (seekBar == volumeSeekBar && emuSmw7 != null) {
             emuSmw7.e(progress);
         }
     }
-
+    
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {}
-
+    
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {}
-
+    
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (emuSmw7 != null) {
+            emuSmw7.g();
             emuSmw7.h();
             emuSmw7 = null;
         }
         stopPlaybackUpdates();
         
-        // ExecutorService 종료
         if (executorService != null && !executorService.isShutdown()) {
             executorService.shutdownNow();
         }
@@ -480,9 +457,17 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     }
     
     private void progressDialogCircleOnly() {
- 	   dialog = new de.dlyt.yanndroid.oneui.dialog.ProgressDialog(context);
-  	  dialog.setProgressStyle(ProgressDialog.STYLE_CIRCLE_ONLY);
-   	 dialog.setCancelable(false);
-    	dialog.show();
-	}
+    dialog = new de.dlyt.yanndroid.oneui.dialog.ProgressDialog(context);
+    dialog.setProgressStyle(ProgressDialog.STYLE_CIRCLE_ONLY);
+    dialog.setCancelable(false);
+	    dialog.show();
+    }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+        sampleRate = Integer.parseInt(sp.getString("sr", "22050"));
+    }
+
 }
+

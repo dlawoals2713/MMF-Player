@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:title="MMF Player"
-    app:subtitle="v1.3"
-    app:navigationIcon="@drawable/ic_samsung_back">
+    app:subtitle="v1.4">
 
     <de.dlyt.yanndroid.oneui.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -40,22 +39,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center">
-                
-                <!-- 샘플 레이트 선택 -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/sample_rate_input_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="샘플 레이트">
-                
-                    <AutoCompleteTextView
-                        android:id="@+id/spinner_sample_rate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        tools:ignore="LabelFor"/>
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- 파일 이름 -->
                 <TextView
