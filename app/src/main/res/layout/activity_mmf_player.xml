@@ -1,0 +1,239 @@
+<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:title="MMF Player"
+    app:subtitle="v1.3"
+    app:navigationIcon="@drawable/ic_samsung_back">
+
+    <de.dlyt.yanndroid.oneui.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/sesl_appbar_scrolling_view_behavior">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 상단 여백 -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- 메인 컨텐츠 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                
+                <!-- 샘플 레이트 선택 -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/sample_rate_input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="샘플 레이트">
+                
+                    <AutoCompleteTextView
+                        android:id="@+id/spinner_sample_rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        tools:ignore="LabelFor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- 파일 이름 -->
+                <TextView
+                    android:id="@+id/text_file_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:text="파일이 선택되지 않음"/>
+
+                <!-- 메타데이터 카드 -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardElevation="2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:id="@+id/text_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="제목: -"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="4dp"
+                            android:background="?android:attr/listDivider"/>
+
+                        <TextView
+                            android:id="@+id/text_artist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:text="아티스트: -"/>
+
+                        <TextView
+                            android:id="@+id/text_copyright"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:text="저작권: -"/>
+
+                        <TextView
+                            android:id="@+id/text_genre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:text="장르: -"/>
+
+                        <TextView
+                            android:id="@+id/text_misc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:text="기타 정보: -"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 컨트롤 버튼 그룹 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/button_init"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_samsung_refresh"
+                        android:contentDescription="초기화"
+                        android:tint="?android:attr/textColorSecondary"
+                        tools:ignore="ContentDescription"/>
+
+                    <ImageButton
+                        android:id="@+id/button_play"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_samsung_play"
+                        android:contentDescription="재생"
+                        android:tint="@color/primaryColor"
+                        tools:ignore="ContentDescription"/>
+
+                    <ImageButton
+                        android:id="@+id/button_stop"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_samsung_stop"
+                        android:contentDescription="정지"
+                        android:tint="?android:attr/textColorSecondary"
+                        tools:ignore="ContentDescription"/>
+
+                    <ImageButton
+                        android:id="@+id/button_release"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginHorizontal="4dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_samsung_power"
+                        android:contentDescription="서비스 종료"
+                        android:tint="@color/errorColor"
+                        tools:ignore="ContentDescription"/>
+                </LinearLayout>
+
+                <!-- 볼륨 컨트롤 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_samsung_minus"
+                        android:tint="?android:attr/textColorSecondary"/>
+
+                    <SeekBar
+                        android:id="@+id/seekbar_volume"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="8dp"
+                        android:max="127"
+                        android:progress="100"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_samsung_plus"
+                        android:tint="?android:attr/textColorSecondary"/>
+                </LinearLayout>
+
+                <!-- 재생 진행바 -->
+                <SeekBar
+                    android:id="@+id/seekbar_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:progressBackgroundTint="?android:attr/textColorHint"
+                    android:progressTint="@color/primaryColor"/>
+
+                <!-- 재생 시간 -->
+                <TextView
+                    android:id="@+id/text_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:text="00:00 / 00:00"/>
+            </LinearLayout>
+
+            <!-- 하단 여백 -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </de.dlyt.yanndroid.oneui.widget.NestedScrollView>
+</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<resources>
+<color name="primaryColor">#2196f3</color>
+<color name="errorColor">#B00020</color>
+<color name="cardBackground">#666666</color>
+<color name="textColor">#000000</color>
+</resources>

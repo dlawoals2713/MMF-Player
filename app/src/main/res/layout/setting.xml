@@ -1,0 +1,55 @@
+<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:title="설정"
+    app:navigationIcon="@drawable/ic_samsung_back">
+
+    <de.dlyt.yanndroid.oneui.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/sesl_appbar_scrolling_view_behavior">
+		<LinearLayout
+			android:id="@+id/linear1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<com.google.android.material.textview.MaterialTextView
+				android:id="@+id/textview2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="부팅 및 로그온"
+				android:textSize="12sp"
+				android:textColor="@color/textColor"
+				style="?android:listSeparatorTextViewStyle" />
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/group_boot_logon"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				<LinearLayout
+					android:id="@+id/linear65"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="vertical">
+					<TextView
+						android:id="@+id/locksetting"
+						android:layout_width="match_parent"
+						android:layout_height="50dp"
+						android:paddingLeft="36dp"
+						android:paddingTop="8dp"
+						android:paddingRight="36dp"
+						android:paddingBottom="8dp"
+						android:gravity="center_vertical"
+						android:text="잠금 설정"
+						android:textSize="16sp"
+						android:textColor="@color/textColor"
+						android:background="?listChoiceBackgroundIndicator" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+		</LinearLayout>
+    </de.dlyt.yanndroid.oneui.widget.NestedScrollView>
+</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>
