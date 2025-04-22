@@ -5,12 +5,15 @@ import android.app.Activity;
 import android.content.*;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.database.Cursor;
 import android.media.AudioAttributes;
 import android.media.AudioFormat;
 import android.media.AudioTrack;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.DocumentsContract;
+import android.util.Log;
 import android.view.View;
 import android.view.Choreographer;
 import android.widget.ArrayAdapter;
@@ -29,6 +32,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.yamaha.smafsynth.m7.emu.DataParser;
 import com.yamaha.smafsynth.m7.emu.EmuSmw7;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,8 +41,8 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
 import de.dlyt.yanndroid.oneui.dialog.ProgressDialog;
+import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
 
 public class MMFPlayerActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private static final int PICK_MMF_FILE = 1;
@@ -94,6 +98,35 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         initUI();
         emuSmw7 = new EmuSmw7();
         context = this;
+
+        Uri fileUri = getIntent().getData();
+        if (fileUri != null) {
+            try {
+                // 파일 이름 가져오기
+                currentFileName = getFileNameFromUri(fileUri);
+                fileNameTextView.setText(currentFileName);
+                
+                // 컨텐트 리졸버를 통해 직접 스트림 열기
+                InputStream inputStream = getContentResolver().openInputStream(fileUri);
+                if (inputStream != null) {
+                    mmfData = new byte[inputStream.available()];
+                    inputStream.read(mmfData);
+                    inputStream.close();
+                    
+                    // 파일 로드 시 메타데이터 파싱
+                    parseAndDisplayMetadata();
+                    
+                    Toast.makeText(this, "파일 로드됨: " + currentFileName, Toast.LENGTH_SHORT).show();
+                    updateButtonStates();
+                    Log.d("MMFPlayer", "파일 URI: " + fileUri.toString());
+                }
+            } catch (Exception e) {
+                Toast.makeText(this, "Error loading file: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else {
+            Log.d("MMFPlayer", "Error: File URI is null");
+        }    
     }
     
     private void initUI() {
@@ -457,9 +490,9 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     }
     
     private void progressDialogCircleOnly() {
-    dialog = new de.dlyt.yanndroid.oneui.dialog.ProgressDialog(context);
-    dialog.setProgressStyle(ProgressDialog.STYLE_CIRCLE_ONLY);
-    dialog.setCancelable(false);
+        dialog = new de.dlyt.yanndroid.oneui.dialog.ProgressDialog(context);
+        dialog.setProgressStyle(ProgressDialog.STYLE_CIRCLE_ONLY);
+        dialog.setCancelable(false);
 	    dialog.show();
     }
     
@@ -468,6 +501,22 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         super.onResume();
         sampleRate = Integer.parseInt(sp.getString("sr", "22050"));
     }
-
+    
+    private String getFileNameFromUri(Uri uri) {
+        String displayName = "";
+        try (Cursor cursor = getContentResolver().query(
+                uri, 
+                new String[]{DocumentsContract.Document.COLUMN_DISPLAY_NAME}, 
+                null, null, null)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                displayName = cursor.getString(0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // 대체 방법: URI에서 직접 이름 추출
+            displayName = uri.getLastPathSegment();
+        }
+        return displayName;
+    }
 }
 

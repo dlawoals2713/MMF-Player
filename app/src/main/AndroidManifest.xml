@@ -45,11 +45,23 @@
 				android:value="androidx.startup" />
 		</provider>
 		<activity
-			android:name="com.dlawoals2713.yamaha.MMFPlayerActivity"
-			android:configChanges="orientation|screenSize" />
-		<activity
-			android:name="MMFPlayerActivity"
-			android:configChanges="orientation|screenSize" />
+			android:name=".MMFPlayerActivity"
+			android:configChanges="orientation|screenSize"
+			android:exported="true"
+			>
+			<intent-filter>
+			        <action android:name="android.intent.action.VIEW" />
+			        <category android:name="android.intent.category.DEFAULT"/>
+			        <category android:name="android.intent.category.BROWSABLE"/>
+			
+			        <!-- MIME 타입 필터 -->
+			        <data android:scheme="content" android:mimeType="*/*"/>
+			        <data android:scheme="file" android:mimeType="*/*"/>
+			
+			        <!-- 파일 확장자 필터 -->
+			        <data android:pathPattern=".*\\.mmf" />
+			    </intent-filter>
+			</activity>
 		<uses-library
 			android:name="org.apache.http.legacy"
 			android:required="false" />
