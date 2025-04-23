@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-xlarge-v4/values-xlarge-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\a06f8dcb1b0a90b2d9e832633f1aa103\\transformed\\appcompat-1.7.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\41b9660219ca4e3ad1251e7b05e2cf41\\transformed\\jetified-oneui-2.4.1\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,132,204,280",
+                        "endColumns": "76,71,75,70",
+                        "endOffsets": "127,199,275,346"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "473,550,622,698",
+                        "endColumns": "76,71,75,70",
+                        "endOffsets": "545,617,693,764"
+                    }
+                }
+            ]
+        }
+    ]
+}

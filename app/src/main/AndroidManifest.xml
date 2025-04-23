@@ -29,10 +29,6 @@
 			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
 			android:hardwareAccelerated="true"
 			android:supportsPictureInPicture="true" />
-		<activity
-			android:name=".DebugActivity"
-			android:screenOrientation="portrait"
-			android:theme="@style/AppTheme.DebugActivity" />
 		<provider
 			android:name="androidx.startup.InitializationProvider"
 			android:authorities="com.dlawoals2713.yamaha.androidx-startup"
@@ -47,8 +43,7 @@
 		<activity
 			android:name=".MMFPlayerActivity"
 			android:configChanges="orientation|screenSize"
-			android:exported="true"
-			>
+			android:exported="true">
 			<intent-filter>
 			        <action android:name="android.intent.action.VIEW" />
 			        <category android:name="android.intent.category.DEFAULT"/>
@@ -66,4 +61,4 @@
 			android:name="org.apache.http.legacy"
 			android:required="false" />
 	</application>
-</manifest>
+</manifest>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sample_rates">
+        <item>11025 Hz</item>
+        <item>16000 Hz</item>
+        <item>22050 Hz</item>
+        <item>24000 Hz</item>
+        <item>32000 Hz</item>
+        <item>44100 Hz</item>
+        <item>48000 Hz</item>
+    </string-array>
+    <color name="cardBackground">#666666</color>
+    <color name="colorAccent">#4679AE</color>
+    <color name="colorControlHighlight">#CFE4FF</color>
+    <color name="colorControlNormal">#4679AE</color>
+    <color name="colorPrimary">#4679AE</color>
+    <color name="colorPrimaryDark">#4679AE</color>
+    <color name="errorColor">#B00020</color>
+    <color name="primaryColor">#2196f3</color>
+    <color name="textColor">#000000</color>
+    <string name="app_name">MMF Player</string>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+		<item name="colorOnPrimary">@android:color/white</item>
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+		<item name="colorControlHighlight">@color/colorControlHighlight</item>
+		<item name="colorControlNormal">@color/colorControlNormal</item>
+	</style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+    <style name="AppTheme.DebugActivity" parent="AppTheme">
+		<item name="actionBarStyle">@style/ThemeOverlay.MaterialComponents.ActionBar.Primary</item>
+		<item name="actionBarTheme">@style/Widget.MaterialComponents.ActionBar.Primary</item>
+		<item name="windowActionBar">true</item>
+		<item name="windowNoTitle">false</item>
+	</style>
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+		<item name="android:windowFullscreen">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+	</style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light"/>
+</resources>

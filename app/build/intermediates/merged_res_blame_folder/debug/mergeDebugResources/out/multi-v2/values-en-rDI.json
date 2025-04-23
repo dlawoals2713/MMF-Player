@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-en-rDI/values-en-rDI.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\41b9660219ca4e3ad1251e7b05e2cf41\\transformed\\jetified-oneui-2.4.1\\res\\values-en-rDI\\values-en-rDI.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,156,262",
+                        "endColumns": "100,105,118",
+                        "endOffsets": "151,257,376"
+                    }
+                }
+            ]
+        }
+    ]
+}

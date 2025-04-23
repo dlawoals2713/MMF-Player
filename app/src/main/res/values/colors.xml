@@ -4,4 +4,11 @@
 <color name="errorColor">#B00020</color>
 <color name="cardBackground">#666666</color>
 <color name="textColor">#000000</color>
+
+<color name="colorPrimary">#4679AE</color>
+<color name="colorPrimaryDark">#4679AE</color>
+<color name="colorAccent">#4679AE</color>
+<color name="colorControlHighlight">#CFE4FF</color>
+<color name="colorControlNormal">#4679AE</color>
+
 </resources>
