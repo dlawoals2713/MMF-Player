@@ -5713,9 +5713,14 @@ string file_unselected
 string genre
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string init_artist
+string init_copyright
 string init_error
+string init_etc
 string init_fail
+string init_genre
 string init_success
+string init_title
 string item_view_role_description
 string latest_version_installed
 string m3_exceed_max_badge_text_suffix

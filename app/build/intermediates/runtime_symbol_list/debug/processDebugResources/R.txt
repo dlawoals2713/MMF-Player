@@ -5712,9 +5712,14 @@ int string file_unselected 0x7f120129
 int string genre 0x7f12012a
 int string hide_bottom_view_on_scroll_behavior 0x7f12003f
 int string icon_content_description 0x7f120040
+int string init_artist 0x7f120135
+int string init_copyright 0x7f120136
 int string init_error 0x7f12012b
+int string init_etc 0x7f120137
 int string init_fail 0x7f12012c
+int string init_genre 0x7f120138
 int string init_success 0x7f12012d
+int string init_title 0x7f120139
 int string item_view_role_description 0x7f120041
 int string latest_version_installed 0x7f120042
 int string m3_exceed_max_badge_text_suffix 0x7f120043

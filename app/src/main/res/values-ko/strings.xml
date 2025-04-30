@@ -20,5 +20,10 @@
     <string name="init_fail">초기화에 실패했습니다</string>
     <string name="init_error">유효한 샘플레이트로 설정하세요</string>
     <string name="play_unselected">먼저 파일을 선택하세요</string>
+    <string name="init_etc">기타 정보: -</string>
     <string name="parse_error">메타데이터 파싱 오류</string>
+    <string name="init_title">제목: -</string>
+    <string name="init_artist">아티스트: -</string>
+    <string name="init_copyright">저작권: -</string>
+    <string name="init_genre">장르: -</string>
 </resources>

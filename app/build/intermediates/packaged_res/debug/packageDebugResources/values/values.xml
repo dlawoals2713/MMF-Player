@@ -29,9 +29,14 @@
     <string name="file_notFound">File not found</string>
     <string name="file_unselected">File not selected</string>
     <string name="genre">Genre: %1$s</string>
+    <string name="init_artist">Artist: -</string>
+    <string name="init_copyright">Copyright: -</string>
     <string name="init_error">Please set a valid sample rate</string>
+    <string name="init_etc">MISC: -</string>
     <string name="init_fail">Initialize failed</string>
+    <string name="init_genre">Genre: -</string>
     <string name="init_success">Initialize success</string>
+    <string name="init_title">Title: -</string>
     <string name="open">Open</string>
     <string name="parse_error">Metadata parsing error</string>
     <string name="play_unselected">select file first</string>

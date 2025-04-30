@@ -69,7 +69,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:text="@string/title"/>
+                                android:text="@string/init_title"/>
 
                             <View
                                 android:layout_width="match_parent"
@@ -82,28 +82,28 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/artist"/>
+                                android:text="@string/init_artist"/>
 
                             <TextView
                                 android:id="@+id/text_copyright"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/copyright"/>
+                                android:text="@string/init_copyright"/>
 
                             <TextView
                                 android:id="@+id/text_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/genre"/>
+                                android:text="@string/init_genre"/>
 
                             <TextView
                                 android:id="@+id/text_misc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/etc"/>
+                                android:text="@string/init_etc"/>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 

@@ -22,6 +22,11 @@
     <string name="copyright">Copyright: %1$s</string>
     <string name="genre">Genre: %1$s</string>
     <string name="etc">MISC: %1$s</string>
+    <string name="init_title">Title: -</string>
+    <string name="init_artist">Artist: -</string>
+    <string name="init_copyright">Copyright: -</string>
+    <string name="init_genre">Genre: -</string>
+    <string name="init_etc">MISC: -</string>
     <string name="parse_error">Metadata parsing error</string>
     <string name="data_unknown">Unknown</string>
     <string name="open">Open</string>

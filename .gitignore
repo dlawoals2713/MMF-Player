@@ -1,6 +1,7 @@
 # Gradle
 .gradle/
 build/
+/build/
 
 # Local configuration file (SDK paths, etc)
 local.properties

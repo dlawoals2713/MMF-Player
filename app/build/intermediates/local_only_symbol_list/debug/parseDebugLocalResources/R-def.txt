@@ -49,9 +49,14 @@ string file_loaded
 string file_notFound
 string file_unselected
 string genre
+string init_artist
+string init_copyright
 string init_error
+string init_etc
 string init_fail
+string init_genre
 string init_success
+string init_title
 string open
 string parse_error
 string play_unselected
