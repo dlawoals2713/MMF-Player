@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dlawoals2713.yamaha"
     android:versionCode="1"
-    android:versionName="1.6" >
+    android:versionName="1.7" >
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -31,43 +31,19 @@
         android:theme="@style/OneUITheme"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.dlawoals2713.yamaha.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:supportsPictureInPicture="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name="com.dlawoals2713.yamaha.SettingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
             android:hardwareAccelerated="true"
             android:supportsPictureInPicture="true" />
-
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.dlawoals2713.yamaha.androidx-startup"
-            android:exported="false" >
-            <meta-data
-                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-                android:value="androidx.startup" />
-            <meta-data
-                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-                android:value="androidx.startup" />
-        </provider>
-
         <activity
             android:name="com.dlawoals2713.yamaha.MMFPlayerActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true" >
             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -75,10 +51,10 @@
 
                 <!-- MIME 타입 필터 -->
                 <data
-                    android:mimeType="*/*"
+                    android:mimeType="application/vnd.smaf"
                     android:scheme="content" />
                 <data
-                    android:mimeType="*/*"
+                    android:mimeType="application/vnd.smaf"
                     android:scheme="file" />
 
                 <!-- 파일 확장자 필터 -->
@@ -89,6 +65,21 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.dlawoals2713.yamaha.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

@@ -55,7 +55,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     private EmuSmw7 emuSmw7;
     private int sampleRate = 22050;
     private byte[] mmfData;
-    private String currentFileName = "파일이 선택되지 않음";
+    private String currentFileName;
     public DataParsers dataParser;
 
     private ToolbarLayout toolbarLayout;
@@ -80,6 +80,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 1);
 
         sp = getSharedPreferences("setting", Activity.MODE_PRIVATE);
+        currentFileName = getString(R.string.file_unselected);
         initUI();
         emuSmw7 = new EmuSmw7();
         emuSmw7.EmuSmw7Init(); // EmuSmw7 초기화
@@ -100,12 +101,12 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
                     parseAndDisplayMetadata();
 
-                    Toast.makeText(this, "파일 로드됨: " + currentFileName, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.file_loaded, currentFileName), Toast.LENGTH_SHORT).show();
                     updateButtonStates();
                     Log.d("MMFPlayer", "파일 URI: " + fileUri.toString());
                 }
             } catch (Exception e) {
-                Toast.makeText(this, "Error loading file: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.file_loadError, e.getMessage()), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         } else {
@@ -150,7 +151,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
         toolbarLayout = findViewById(R.id.toolbar_view);
         toolbarLayout.inflateToolbarMenu(R.menu.player);
-        toolbarLayout.getToolbarMenu().findItem(R.id.settings).setTitle("설정");
+        toolbarLayout.getToolbarMenu().findItem(R.id.settings).setTitle(getString(R.string.setting));
         toolbarLayout.setOnToolbarMenuItemClickListener(item -> {
             int itemId = item.getItemId();  // item ID를 미리 저장해두기
 
@@ -188,17 +189,17 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 runOnUiThread(() -> {
                     if (result >= 0) {
                         updateButtonStates();
-                        Toast.makeText(MMFPlayerActivity.this, "초기화 되었습니다", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MMFPlayerActivity.this, getString(R.string.init_success), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(MMFPlayerActivity.this, "초기화 실패", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MMFPlayerActivity.this, getString(R.string.init_fail), Toast.LENGTH_SHORT).show();
                     }
                 });
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "유효한 샘플 레이트를 입력하세요", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.init_error), Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.button_play) {
             if (mmfData == null) {
-                Toast.makeText(this, "먼저 파일을 선택하세요", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.play_unselected), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -240,15 +241,15 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
                         parseAndDisplayMetadata();
 
-                        Toast.makeText(this, "파일 로드됨: " + currentFileName, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.file_loaded, currentFileName), Toast.LENGTH_SHORT).show();
                         updateButtonStates();
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(this, "파일을 찾을 수 없음", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.file_notFound), Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Toast.makeText(this, "파일 읽는 중 오류 발생", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.file_error), Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -261,24 +262,24 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 updateMetadataDisplay();
             } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(this, "메타데이터 파싱 오류", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.parse_error), Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void updateMetadataDisplay() {
         if (dataParser != null) {
-            titleTextView.setText("제목: " + (dataParser.getTitle().isEmpty() ? "알 수 없음" : dataParser.getTitle()));
-            artistTextView.setText("아티스트: " + (dataParser.getArtistName().isEmpty() ? "알 수 없음" : dataParser.getArtistName()));
-            copyrightTextView.setText("저작권: " + (dataParser.getCopyrightInfo().isEmpty() ? "알 수 없음" : dataParser.getCopyrightInfo()));
-            genreTextView.setText("장르: " + (dataParser.getGenre().isEmpty() ? "알 수 없음" : dataParser.getGenre()));
-            miscTextView.setText("기타 정보: " + (dataParser.getMiscInfo().isEmpty() ? "알 수 없음" : dataParser.getMiscInfo()));
+            titleTextView.setText(getString(R.string.title, (dataParser.getTitle().isEmpty() ? getString(R.string.data_unknown) : dataParser.getTitle())));
+            artistTextView.setText(getString(R.string.artist, (dataParser.getArtistName().isEmpty() ? getString(R.string.data_unknown) : dataParser.getArtistName())));
+            copyrightTextView.setText(getString(R.string.copyright, (dataParser.getCopyrightInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getCopyrightInfo())));
+            genreTextView.setText(getString(R.string.genre, (dataParser.getGenre().isEmpty() ? getString(R.string.data_unknown) : dataParser.getGenre())));
+            miscTextView.setText(getString(R.string.etc, (dataParser.getMiscInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getMiscInfo())));
         } else {
-            titleTextView.setText("제목: 알 수 없음");
-            artistTextView.setText("아티스트: 알 수 없음");
-            copyrightTextView.setText("저작권: 알 수 없음");
-            genreTextView.setText("장르: 알 수 없음");
-            miscTextView.setText("기타 정보: 알 수 없음");
+            titleTextView.setText(getString(R.string.title, getString(R.string.data_unknown)));
+            artistTextView.setText(getString(R.string.artist, getString(R.string.data_unknown)));
+            copyrightTextView.setText(getString(R.string.copyright, getString(R.string.data_unknown)));
+            genreTextView.setText(getString(R.string.genre, getString(R.string.data_unknown)));
+            miscTextView.setText(getString(R.string.etc, getString(R.string.data_unknown)));
         }
     }
 

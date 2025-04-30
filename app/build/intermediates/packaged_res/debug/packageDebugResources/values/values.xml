@@ -19,6 +19,26 @@
     <color name="primaryColor">#2196f3</color>
     <color name="textColor">#000000</color>
     <string name="app_name">MMF Player</string>
+    <string name="artist">Artist: %1$s</string>
+    <string name="copyright">Copyright: %1$s</string>
+    <string name="data_unknown">Unknown</string>
+    <string name="etc">MISC: %1$s</string>
+    <string name="file_error">An error occurred while reading the file</string>
+    <string name="file_loadError">Error loading file: %1$s</string>
+    <string name="file_loaded">File loaded: %1$s</string>
+    <string name="file_notFound">File not found</string>
+    <string name="file_unselected">File not selected</string>
+    <string name="genre">Genre: %1$s</string>
+    <string name="init_error">Please set a valid sample rate</string>
+    <string name="init_fail">Initialize failed</string>
+    <string name="init_success">Initialize success</string>
+    <string name="open">Open</string>
+    <string name="parse_error">Metadata parsing error</string>
+    <string name="play_unselected">select file first</string>
+    <string name="setting">Setting</string>
+    <string name="setting_saved_rate">Saved. You must restart the service to apply.</string>
+    <string name="setting_sound_quality">Sound &amp; Quality</string>
+    <string name="title">Title: %1$s</string>
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
 		<item name="colorOnPrimary">@android:color/white</item>
 		<item name="colorPrimary">@color/colorPrimary</item>

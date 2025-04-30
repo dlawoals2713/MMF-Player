@@ -3,7 +3,7 @@
     android:id="@+id/toolbar_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:title="설정"
+    app:title="@string/setting"
     app:navigationIcon="@drawable/ic_oui_back">
 
     <de.dlyt.yanndroid.oneui.widget.NestedScrollView
@@ -21,7 +21,7 @@
 				android:id="@+id/textview2"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="사운드 및 품질"
+				android:text="@string/setting_sound_quality"
 				android:textSize="12sp"
 				android:textColor="@color/textColor"
 				style="?android:listSeparatorTextViewStyle" />

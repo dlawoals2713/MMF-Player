@@ -14,44 +14,24 @@
 		android:usesCleartextTraffic="true"
 		android:theme="@style/OneUITheme">
 		<activity
-			android:name=".MainActivity"
-			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
-			android:hardwareAccelerated="true"
-			android:supportsPictureInPicture="true"
-			android:exported="true">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-		<activity
 			android:name=".SettingActivity"
 			android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
 			android:hardwareAccelerated="true"
 			android:supportsPictureInPicture="true" />
-		<provider
-			android:name="androidx.startup.InitializationProvider"
-			android:authorities="com.dlawoals2713.yamaha.androidx-startup"
-			android:exported="false">
-			<meta-data
-				android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-				android:value="androidx.startup" />
-			<meta-data
-				android:name="androidx.emoji2.text.EmojiCompatInitializer"
-				android:value="androidx.startup" />
-		</provider>
 		<activity
 			android:name=".MMFPlayerActivity"
 			android:configChanges="orientation|screenSize"
 			android:exported="true">
 			<intent-filter>
+					<action android:name="android.intent.action.MAIN" />
+					<category android:name="android.intent.category.LAUNCHER" />
 			        <action android:name="android.intent.action.VIEW" />
 			        <category android:name="android.intent.category.DEFAULT"/>
 			        <category android:name="android.intent.category.BROWSABLE"/>
 			
 			        <!-- MIME 타입 필터 -->
-			        <data android:scheme="content" android:mimeType="*/*"/>
-			        <data android:scheme="file" android:mimeType="*/*"/>
+			        <data android:scheme="content" android:mimeType="application/vnd.smaf"/>
+			        <data android:scheme="file" android:mimeType="application/vnd.smaf"/>
 			
 			        <!-- 파일 확장자 필터 -->
 			        <data android:pathPattern=".*\\.mmf" />

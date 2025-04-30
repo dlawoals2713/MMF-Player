@@ -4,7 +4,7 @@
             "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-w1920dp-h1dp-v13/values-w1920dp-h1dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\41b9660219ca4e3ad1251e7b05e2cf41\\transformed\\jetified-oneui-2.4.1\\res\\values-w1920dp-h1dp-v13\\values-w1920dp-h1dp-v13.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-w1920dp-h1dp-v13\\values-w1920dp-h1dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

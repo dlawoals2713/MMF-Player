@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:title="MMF Player"
-    app:subtitle="v1.5">
+    app:subtitle="v1.7">
 
     <de.dlyt.yanndroid.oneui.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                         android:maxLines="1"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="?android:attr/textColorSecondary"
-                        android:text="파일이 선택되지 않음"/>
+                        android:text="@string/file_unselected"/>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:text="제목: -"/>
+                                android:text="@string/title"/>
 
                             <View
                                 android:layout_width="match_parent"
@@ -82,28 +82,28 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="아티스트: -"/>
+                                android:text="@string/artist"/>
 
                             <TextView
                                 android:id="@+id/text_copyright"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="저작권: -"/>
+                                android:text="@string/copyright"/>
 
                             <TextView
                                 android:id="@+id/text_genre"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="장르: -"/>
+                                android:text="@string/genre"/>
 
                             <TextView
                                 android:id="@+id/text_misc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="기타 정보: -"/>
+                                android:text="@string/etc"/>
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 

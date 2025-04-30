@@ -5,17 +5,11 @@ import java.io.UnsupportedEncodingException;
 public class DataParsers {
 
     private byte[] data;
-
     protected String encoding = "SJIS";
-
     protected String title = "";
-
     protected String artistName = "";
-
     protected String copyrightInfo = "";
-
     protected String genre = "";
-
     protected String miscInfo = "";
 
     public DataParsers(byte[] data) {
@@ -144,19 +138,15 @@ public class DataParsers {
     public String getGenre() {
         return this.genre;
     }
-
     public String getMiscInfo() {
         return this.miscInfo;
     }
-
     public String getArtistName() {
         return this.artistName;
     }
-
     public String getCopyrightInfo() {
         return this.copyrightInfo;
     }
-
     public String getTitle() {
         return this.title;
     }

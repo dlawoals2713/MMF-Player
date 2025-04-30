@@ -1,15 +1,11 @@
 [
     {
-        "merged": "com.dlawoals2713.yamaha.app-debug-32:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.dlawoals2713.yamaha.app-main-34:/drawable/ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\layout_main.xml.flat",
         "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\layout\\main.xml"
     },
     {
-        "merged": "com.dlawoals2713.yamaha.app-debug-32:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.dlawoals2713.yamaha.app-pngs-28:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\layout_setting.xml.flat",
@@ -20,12 +16,16 @@
         "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\layout\\activity_mmf_player.xml"
     },
     {
-        "merged": "com.dlawoals2713.yamaha.app-debug-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.dlawoals2713.yamaha.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.dlawoals2713.yamaha.app-debug-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.dlawoals2713.yamaha.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-pngs-28:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.dlawoals2713.yamaha.app-debug-32:/layout_activity_mmf_player.xml.flat",
+        "source": "com.dlawoals2713.yamaha.app-main-34:/layout/activity_mmf_player.xml"
     },
     {
         "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -36,7 +36,7 @@
         "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\menu\\player.xml"
     },
     {
-        "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\drawable-xhdpi_default_image.png.flat",
-        "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\drawable-xhdpi\\default_image.png"
+        "merged": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-debug-32:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\dlawo\\.gradle\\daemon\\8.9\\com.dlawoals2713.yamaha.app-main-34:\\mipmap-anydpi-v26\\ic_launcher.xml"
     }
 ]

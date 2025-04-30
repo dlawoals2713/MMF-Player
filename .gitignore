@@ -1,13 +1,31 @@
-.gradle
-/local.properties
-/.idea
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-*.apk
+# Gradle
+.gradle/
+build/
+
+# Local configuration file (SDK paths, etc)
+local.properties
+
+# IDE settings
+.idea/
 *.iml
+
+# OS generated files
+.DS_Store
 *.log
+
+# Android Studio
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# Signing keys
 *.keystore
 *.jks
+
+# Google Services
+google-services.json
+
+# Android Profiling
+*.hprof

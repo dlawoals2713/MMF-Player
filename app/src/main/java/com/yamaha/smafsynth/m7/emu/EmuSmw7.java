@@ -22,12 +22,9 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
     // 오디오 관련 변수들
     private int sampleRate = -1;
     private int minBufferSize = 0;
-    private int notificationPeriodInFrames = 0;
-    private int notificationPeriodInMillis = 0;
     private final int numberOfBuffers = 2;
     private int currentBufferIndexForPlayback = 0;
     public AudioTrack audioTrack = null;
-    private byte[] silenceBuffer = null;
     private int releaseDelayInMillis = 1000;
     private boolean[] isBufferReady;
     private byte[][] audioBuffers;
@@ -88,7 +85,7 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
             synchronized (bufferQueue){
                 long currentPosition = getPosition();
                 long audioLength = AUDIO_LEN_CACHE;
-                long diff = audioLength - currentPosition; // 차이 계산
+                long diff = audioLength - currentPosition;
                 long toleranceFrames;
                 if (audioLength > maxToleranceFrames * 20) { // 최대치의 20배를 초과할경우
                     toleranceFrames = maxToleranceFrames;//최대값을 사용한다.
@@ -145,6 +142,8 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
                 .build();
 
         // AudioTrack 생성
+        int notificationPeriodInFrames = 0;
+        byte[] silenceBuffer = null;
         try {
             this.audioTrack = new AudioTrack(
                     audioAttributes,
@@ -158,14 +157,14 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
                 return -1;
             }
             // 알림 주기 및 지연 시간 설정
-            this.notificationPeriodInFrames = this.minBufferSize / 4;
-            this.notificationPeriodInMillis = ((this.notificationPeriodInFrames * 1000) / this.sampleRate) + 1;
-            this.releaseDelayInMillis = this.notificationPeriodInMillis * 2;
+            notificationPeriodInFrames = this.minBufferSize / 4;
+            int notificationPeriodInMillis = ((notificationPeriodInFrames * 1000) / this.sampleRate) + 1;
+            this.releaseDelayInMillis = notificationPeriodInMillis * 2;
 
             // 침묵 데이터 버퍼 초기화
-            this.silenceBuffer = new byte[this.minBufferSize];
-            Arrays.fill(this.silenceBuffer, (byte) 0);
-            this.audioTrack.setPositionNotificationPeriod(this.notificationPeriodInFrames);
+            silenceBuffer = new byte[this.minBufferSize];
+            Arrays.fill(silenceBuffer, (byte) 0);
+            this.audioTrack.setPositionNotificationPeriod(notificationPeriodInFrames);
             this.audioTrack.setPlaybackPositionUpdateListener(this);
         } catch (Exception e) {
             Log.e("AudioTrack", "Error initializing AudioTrack: " + e.getMessage());
@@ -176,7 +175,7 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
         initializeBuffers(this.minBufferSize);
 
         // 네이티브 엔진 초기화
-        long initResult = init(this.sampleRate, this.notificationPeriodInFrames);
+        long initResult = init(this.sampleRate, notificationPeriodInFrames);
         if (initResult < 0) {
             Log.e("NativeInit", "Native audio engine initialization failed");
             releaseAudioResources();
@@ -193,7 +192,7 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
 
         // 침묵 데이터를 쓰고 안정적인 재생 환경 조성
         for (int i = 0; i < 3; i++) {
-            int result = this.audioTrack.write(this.silenceBuffer, 0, this.minBufferSize);
+            int result = this.audioTrack.write(silenceBuffer, 0, this.minBufferSize);
             if (result < 0) {
                 Log.e("AudioTrack", "Error writing silence data: " + result);
                 return -1;
@@ -214,7 +213,7 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
     /**
      * 데이터 생성 작업을 백그라운드에서 실행하기 위한 Runnable
      */
-    private Runnable dataGenerationTask = new Runnable() {
+    private final Runnable dataGenerationTask = new Runnable() {
         @Override
         public void run() {
             //setThreadPriority(Thread.NORM_PRIORITY);
@@ -353,12 +352,12 @@ public class EmuSmw7 implements AudioTrack.OnPlaybackPositionUpdateListener {
         setVolume(vol);
     }
 
-    public long stopPlayback() {
-        return stop();
+    public void stopPlayback() {
+        stop();
     }
 
-    public long startPlayback(byte[] mmfData, long l, long l1, long formatType, long l2, long l3) {
-        return start(mmfData, l, l1, formatType, l2, l3);
+    public void startPlayback(byte[] mmfData, long l, long l1, long formatType, long l2, long l3) {
+        start(mmfData, l, l1, formatType, l2, l3);
     }
 
     public long getPlaybackStatus() {
