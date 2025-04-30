@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-44:12
-INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-44:12
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\81335119a568adab27dfc9fa2e61a412\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\ca66ec4f0fb00decdfe1e74d5e290681\transformed\jetified-appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\9a9b6f5d87c389419f22f7a5e827ad9d\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
@@ -72,8 +72,8 @@ ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:8:19-75
 application
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-43:16
-INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-43:16
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-45:16
+INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-45:16
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\81335119a568adab27dfc9fa2e61a412\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\81335119a568adab27dfc9fa2e61a412\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\9a9b6f5d87c389419f22f7a5e827ad9d\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
@@ -117,49 +117,51 @@ ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:17:4-35
 activity#com.dlawoals2713.yamaha.MMFPlayerActivity
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:21:3-39:15
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:21:3-41:15
 	android:exported
 		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:24:4-27
 	android:configChanges
 		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:23:4-50
 	android:name
 		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:22:4-37
-intent-filter#action:name:android.intent.action.MAIN+action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.LAUNCHER+data:mimeType:application/vnd.smaf+data:mimeType:application/vnd.smaf+data:pathPattern:.*\\.mmf+data:scheme:content+data:scheme:file
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:25:4-38:24
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:25:4-28:20
 action#android.intent.action.MAIN
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:6-58
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:5-57
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:14-55
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:13-54
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:6-66
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:5-65
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:16-63
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:15-62
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:mimeType:application/vnd.smaf+data:mimeType:application/vnd.smaf+data:pathPattern:.*\\.mmf+data:scheme:content+data:scheme:file
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:4-40:24
 action#android.intent.action.VIEW
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:28:12-64
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:12-64
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:28:20-61
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:20-61
 category#android.intent.category.DEFAULT
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:12-70
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:31:12-70
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:22-68
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:31:22-68
 category#android.intent.category.BROWSABLE
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:12-72
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:32:12-72
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:22-70
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:32:22-70
 data
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:12-84
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:12-84
 	android:scheme
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:18-42
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:18-42
 	android:pathPattern
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:37:18-48
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:39:18-48
 	android:mimeType
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:43-82
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:43-82
 uses-library#org.apache.http.legacy
-ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:40:3-42:31
+ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:42:3-44:31
 	android:required
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:42:4-28
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:44:4-28
 	android:name
-		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:41:4-41
+		ADDED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:43:4-41
 uses-sdk
 INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml

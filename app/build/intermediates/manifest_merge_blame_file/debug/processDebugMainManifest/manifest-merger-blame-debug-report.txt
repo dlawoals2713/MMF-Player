@@ -33,7 +33,7 @@
 20-->[androidx.core:core:1.13.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\32c5d5592cbced18c50b69bee66180ef\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 21
 22    <application
-22-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-43:16
+22-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:9:2-45:16
 23        android:allowBackup="true"
 23-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:10:3-29
 24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -62,7 +62,7 @@
 37            android:supportsPictureInPicture="true" />
 37-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:20:4-43
 38        <activity
-38-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:21:3-39:15
+38-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:21:3-41:15
 39            android:name="com.dlawoals2713.yamaha.MMFPlayerActivity"
 39-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:22:4-37
 40            android:configChanges="orientation|screenSize"
@@ -70,119 +70,121 @@
 41            android:exported="true" >
 41-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:24:4-27
 42            <intent-filter>
-42-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:25:4-38:24
+42-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:25:4-28:20
 43                <action android:name="android.intent.action.MAIN" />
-43-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:6-58
-43-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:14-55
+43-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:5-57
+43-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:26:13-54
 44
 45                <category android:name="android.intent.category.LAUNCHER" />
-45-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:6-66
-45-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:16-63
-46
-47                <action android:name="android.intent.action.VIEW" />
-47-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:28:12-64
-47-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:28:20-61
-48
-49                <category android:name="android.intent.category.DEFAULT" />
-49-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:12-70
-49-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:22-68
-50                <category android:name="android.intent.category.BROWSABLE" />
-50-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:12-72
-50-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:22-70
-51
-52                <!-- MIME 타입 필터 -->
-53                <data
-53-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:12-84
-54                    android:mimeType="application/vnd.smaf"
-54-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:43-82
-55                    android:scheme="content" />
-55-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:18-42
-56                <data
-56-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:12-84
-57                    android:mimeType="application/vnd.smaf"
-57-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:43-82
-58                    android:scheme="file" />
-58-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:18-42
-59
-60                <!-- 파일 확장자 필터 -->
-61                <data android:pathPattern=".*\\.mmf" />
-61-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:33:12-84
-61-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:37:18-48
-62            </intent-filter>
-63        </activity>
-64
-65        <uses-library
-65-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:40:3-42:31
-66            android:name="org.apache.http.legacy"
-66-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:41:4-41
-67            android:required="false" />
-67-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:42:4-28
-68
-69        <provider
-69-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-70            android:name="androidx.startup.InitializationProvider"
-70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
-71            android:authorities="com.dlawoals2713.yamaha.androidx-startup"
-71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
-72            android:exported="false" >
-72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
-73            <meta-data
-73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-74                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-74-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
-75                android:value="androidx.startup" />
-75-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
-76            <meta-data
-76-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-77                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-77-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-78                android:value="androidx.startup" />
-78-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-79            <meta-data
-79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-80                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-81                android:value="androidx.startup" />
-81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-82        </provider>
-83
-84        <receiver
-84-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-85            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-86            android:directBootAware="false"
-86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-87            android:enabled="true"
-87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-88            android:exported="true"
-88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-89            android:permission="android.permission.DUMP" >
-89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-90            <intent-filter>
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-91                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-92            </intent-filter>
-93            <intent-filter>
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-94                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-95            </intent-filter>
-96            <intent-filter>
-96-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-97                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-98            </intent-filter>
-99            <intent-filter>
-99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-100                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-101            </intent-filter>
-102        </receiver>
-103    </application>
-104
-105</manifest>
+45-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:5-65
+45-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:27:15-62
+46            </intent-filter>
+47            <intent-filter>
+47-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:29:4-40:24
+48                <action android:name="android.intent.action.VIEW" />
+48-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:12-64
+48-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:30:20-61
+49
+50                <category android:name="android.intent.category.DEFAULT" />
+50-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:31:12-70
+50-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:31:22-68
+51                <category android:name="android.intent.category.BROWSABLE" />
+51-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:32:12-72
+51-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:32:22-70
+52
+53                <!-- MIME 타입 필터 -->
+54                <data
+54-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:12-84
+55                    android:mimeType="application/vnd.smaf"
+55-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:43-82
+56                    android:scheme="content" />
+56-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:18-42
+57                <data
+57-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:12-84
+58                    android:mimeType="application/vnd.smaf"
+58-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:43-82
+59                    android:scheme="file" />
+59-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:18-42
+60
+61                <!-- 파일 확장자 필터 -->
+62                <data android:pathPattern=".*\\.mmf" />
+62-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:35:12-84
+62-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:39:18-48
+63            </intent-filter>
+64        </activity>
+65
+66        <uses-library
+66-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:42:3-44:31
+67            android:name="org.apache.http.legacy"
+67-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:43:4-41
+68            android:required="false" />
+68-->C:\Users\dlawo\Sketchware\MMF-Player\app\src\main\AndroidManifest.xml:44:4-28
+69
+70        <provider
+70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+71            android:name="androidx.startup.InitializationProvider"
+71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+72            android:authorities="com.dlawoals2713.yamaha.androidx-startup"
+72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+73            android:exported="false" >
+73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+74            <meta-data
+74-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+75-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+76                android:value="androidx.startup" />
+76-->[androidx.emoji2:emoji2:1.3.0] C:\Users\dlawo\.gradle\caches\8.9\transforms\2f2b8f2c9b8f905f136b6ee327647449\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+77            <meta-data
+77-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+78                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+78-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+79                android:value="androidx.startup" />
+79-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\dlawo\.gradle\caches\8.9\transforms\746d61179a34ac7d69b9578a6352ea45\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+80            <meta-data
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+81                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+82                android:value="androidx.startup" />
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+83        </provider>
+84
+85        <receiver
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+86            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+87            android:directBootAware="false"
+87-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+88            android:enabled="true"
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+89            android:exported="true"
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+90            android:permission="android.permission.DUMP" >
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+92                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+93            </intent-filter>
+94            <intent-filter>
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+95                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+96            </intent-filter>
+97            <intent-filter>
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+98                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+99            </intent-filter>
+100            <intent-filter>
+100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+101                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\dlawo\.gradle\caches\8.9\transforms\64e35c36d0cf189292b1b9a81d0488fc\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+102            </intent-filter>
+103        </receiver>
+104    </application>
+105
+106</manifest>
