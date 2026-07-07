@@ -1,24 +1,24 @@
-<de.dlyt.yanndroid.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<dev.oneuiproject.oneui.layout.ToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:title="MMF Player"
-    app:subtitle="v1.7">
+    app:subtitle="v1.8"
+    app:expanded="false">
 
-    <de.dlyt.yanndroid.oneui.widget.NestedScrollView
+    <dev.oneuiproject.oneui.widget.RoundedNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:scrollbars="vertical"
-        app:layout_behavior="@string/sesl_appbar_scrolling_view_behavior">
+        android:layout_marginHorizontal="10dp">
 
-        <com.google.android.material.card.MaterialCardView
+        <dev.oneuiproject.oneui.widget.RoundedLinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardElevation="4dp"
-            app:cardCornerRadius="8dp">
+            android:background="?android:colorBackground">
 
             <LinearLayout
                 android:id="@+id/content"
@@ -52,60 +52,21 @@
                         android:textColor="?android:attr/textColorSecondary"
                         android:text="@string/file_unselected"/>
 
-                    <com.google.android.material.card.MaterialCardView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        app:cardElevation="2dp">
+                        android:orientation="vertical"
+                        android:padding="12dp">
 
-                        <LinearLayout
+                        <TextView
+                            android:id="@+id/text_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="12dp">
-
-                            <TextView
-                                android:id="@+id/text_title"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:text="@string/init_title"/>
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginVertical="4dp"
-                                android:background="?android:attr/listDivider"/>
-
-                            <TextView
-                                android:id="@+id/text_artist"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/init_artist"/>
-
-                            <TextView
-                                android:id="@+id/text_copyright"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/init_copyright"/>
-
-                            <TextView
-                                android:id="@+id/text_genre"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/init_genre"/>
-
-                            <TextView
-                                android:id="@+id/text_misc"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                android:text="@string/init_etc"/>
-                        </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:text="@string/init_title"
+                            android:gravity="center"/>
+                    </LinearLayout>
 
                     <!-- 컨트롤 버튼 그룹 -->
                     <LinearLayout
@@ -132,7 +93,7 @@
                             android:layout_height="48dp"
                             android:layout_marginHorizontal="4dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
-                            android:src="@drawable/ic_oui_play"
+                            android:src="@drawable/ic_oui_control_play"
                             android:contentDescription="재생"
                             app:tint="@color/primaryColor"
                             tools:ignore="ContentDescription"/>
@@ -143,7 +104,7 @@
                             android:layout_height="48dp"
                             android:layout_marginHorizontal="4dp"
                             android:background="?selectableItemBackgroundBorderless"
-                            android:src="@drawable/ic_oui_stop"
+                            android:src="@drawable/ic_oui_control_stop"
                             android:contentDescription="정지"
                             app:tint="?android:attr/textColorSecondary"
                             tools:ignore="ContentDescription"/>
@@ -174,7 +135,7 @@
                             android:src="@drawable/ic_oui_minus"
                             app:tint="?android:attr/textColorSecondary" />
 
-                        <SeekBar
+                        <androidx.appcompat.widget.AppCompatSeekBar
                             android:id="@+id/seekbar_volume"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -186,12 +147,12 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@drawable/ic_oui_plus"
+                            android:src="@drawable/ic_oui_add"
                             app:tint="?android:attr/textColorSecondary" />
                     </LinearLayout>
 
                     <!-- 재생 진행바 -->
-                    <SeekBar
+                    <androidx.appcompat.widget.AppCompatSeekBar
                         android:id="@+id/seekbar_progress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -216,6 +177,6 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"/>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </de.dlyt.yanndroid.oneui.widget.NestedScrollView>
-</de.dlyt.yanndroid.oneui.layout.ToolbarLayout>
+        </dev.oneuiproject.oneui.widget.RoundedLinearLayout>
+    </dev.oneuiproject.oneui.widget.RoundedNestedScrollView>
+</dev.oneuiproject.oneui.layout.ToolbarLayout>

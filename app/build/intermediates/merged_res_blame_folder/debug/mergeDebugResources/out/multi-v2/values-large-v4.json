@@ -1,27 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,132,208,284",
-                        "endColumns": "76,75,75,74",
-                        "endOffsets": "127,203,279,354"
-                    },
-                    "to": {
-                        "startLines": "9,10,11,12",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "532,609,685,761",
-                        "endColumns": "76,75,75,74",
-                        "endOffsets": "604,680,756,831"
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 },
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\81335119a568adab27dfc9fa2e61a412\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\54a4c9ee105a83c3aced3721c6ab6dd9\\transformed\\material-1.12.0+1.0.39-sesl7+rev7\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -30,28 +23,11 @@
                         "endOffsets": "164,280,402,536"
                     },
                     "to": {
-                        "startLines": "15,16,17,18",
+                        "startLines": "11,12,13,14",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "1056,1170,1286,1408",
+                        "startOffsets": "752,866,982,1104",
                         "endColumns": "113,115,121,133",
-                        "endOffsets": "1165,1281,1403,1537"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\898b79dd632f89eb91b6f092b9b23fc3\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,836,940",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,935,1051"
+                        "endOffsets": "861,977,1099,1233"
                     }
                 }
             ]

@@ -26,4 +26,5 @@
     <string name="init_artist">아티스트: -</string>
     <string name="init_copyright">저작권: -</string>
     <string name="init_genre">장르: -</string>
+    <string name="info">파일 정보</string>
 </resources>

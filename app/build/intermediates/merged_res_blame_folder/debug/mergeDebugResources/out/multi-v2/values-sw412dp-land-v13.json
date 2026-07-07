@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-sw412dp-land-v13/values-sw412dp-land-v13.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-sw412dp-land-v13/values-sw412dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-sw412dp-land-v13\\values-sw412dp-land-v13.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-sw412dp-land-v13\\values-sw412dp-land-v13.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,127,200,267,338,410,477,541",
-                        "endColumns": "71,72,66,70,71,66,63,67",
-                        "endOffsets": "122,195,262,333,405,472,536,604"
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,123,191,260,323,384",
+                        "endColumns": "67,67,68,62,60,64",
+                        "endOffsets": "118,186,255,318,379,444"
                     }
                 }
             ]

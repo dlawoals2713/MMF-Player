@@ -1,16 +1,33 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-xxhdpi-v4/values-xxhdpi-v4.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-xxhdpi-v4/values-xxhdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\9b44d8fea04de3d74d4ec2dae3e7739b\\transformed\\jetified-oneui-design-0.7.12+oneui7\\res\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
                     "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,120,177",
-                        "endColumns": "64,56,58",
-                        "endOffsets": "115,172,231"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,129",
+                        "endColumns": "73,78",
+                        "endOffsets": "124,203"
+                    },
+                    "to": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "167,241",
+                        "endColumns": "73,78",
+                        "endOffsets": "236,315"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-xxhdpi-v4\\values-xxhdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,56",
+                        "endOffsets": "105,162"
                     }
                 }
             ]

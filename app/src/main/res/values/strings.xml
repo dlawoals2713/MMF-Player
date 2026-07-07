@@ -37,4 +37,5 @@
     <string name="init_fail">Initialize failed</string>
     <string name="init_error">Please set a valid sample rate</string>
     <string name="play_unselected">select file first</string>
+    <string name="info">file info</string>
 </resources>

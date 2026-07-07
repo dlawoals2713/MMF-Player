@@ -1,16 +1,40 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-h580dp-land-v13/values-h580dp-land-v13.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-h580dp-land-v13/values-h580dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-h580dp-land-v13\\values-h580dp-land-v13.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\54a4c9ee105a83c3aced3721c6ab6dd9\\transformed\\material-1.12.0+1.0.39-sesl7+rev7\\res\\values-h580dp-land-v13\\values-h580dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "71",
+                        "endOffsets": "122"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "243",
+                        "endColumns": "71",
+                        "endOffsets": "310"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-h580dp-land-v13\\values-h580dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,121,192,255,328,391",
-                        "endColumns": "65,70,62,72,62,70",
-                        "endOffsets": "116,187,250,323,386,457"
+                        "startOffsets": "55,117,184,243,311,371",
+                        "endColumns": "61,66,58,67,59,73",
+                        "endOffsets": "112,179,238,306,366,440"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,6,7,8",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,117,184,315,383,443",
+                        "endColumns": "61,66,58,67,59,73",
+                        "endOffsets": "112,179,238,378,438,512"
                     }
                 }
             ]

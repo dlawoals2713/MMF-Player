@@ -29,6 +29,7 @@
     <string name="file_notFound">File not found</string>
     <string name="file_unselected">File not selected</string>
     <string name="genre">Genre: %1$s</string>
+    <string name="info">file info</string>
     <string name="init_artist">Artist: -</string>
     <string name="init_copyright">Copyright: -</string>
     <string name="init_error">Please set a valid sample rate</string>
@@ -44,24 +45,29 @@
     <string name="setting_saved_rate">Saved. You must restart the service to apply.</string>
     <string name="setting_sound_quality">Sound &amp; Quality</string>
     <string name="title">Title: %1$s</string>
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
-		<item name="colorOnPrimary">@android:color/white</item>
-		<item name="colorPrimary">@color/colorPrimary</item>
-		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-		<item name="colorAccent">@color/colorAccent</item>
-		<item name="colorControlHighlight">@color/colorControlHighlight</item>
-		<item name="colorControlNormal">@color/colorControlNormal</item>
+    <style name="AppTheme" parent="Theme.Material3.DayNight">
+		<item name="windowActionModeOverlay">true</item>
+		<item name="windowActionBarOverlay">true</item>
+		<item name="windowNoTitle">true</item>
 	</style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
-    <style name="AppTheme.DebugActivity" parent="AppTheme">
-		<item name="actionBarStyle">@style/ThemeOverlay.MaterialComponents.ActionBar.Primary</item>
-		<item name="actionBarTheme">@style/Widget.MaterialComponents.ActionBar.Primary</item>
-		<item name="windowActionBar">true</item>
-		<item name="windowNoTitle">false</item>
-	</style>
+    <style name="AppTheme.AppBarOverlay" parent="Theme.Material3.DayNight"/>
     <style name="AppTheme.FullScreen" parent="AppTheme">
-		<item name="android:windowFullscreen">true</item>
+		<item name="android:windowFullscreen">false</item>
 		<item name="android:windowContentOverlay">@null</item>
 	</style>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="Theme.Material3.DayNight"/>
+    <style name="Theme.OneUI.FullScreen" parent="@style/OneUITheme">
+		<item name="android:windowFullscreen">true</item>
+
+		<item name="android:windowTranslucentStatus">true</item>
+
+		<item name="android:windowTranslucentNavigation">true</item>
+
+		<item name="android:windowBackground">@android:color/transparent</item>
+
+	</style>
+    <style name="Theme.TransparentActivity" parent="@style/OneUITheme">
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
 </resources>

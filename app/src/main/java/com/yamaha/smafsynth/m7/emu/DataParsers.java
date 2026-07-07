@@ -37,8 +37,6 @@ public class DataParsers {
         if (code == 5) {
             return "KOI8_R";
         }
-        switch (code) {
-        }
         return "SJIS";
     }
 
@@ -84,8 +82,6 @@ public class DataParsers {
                         if ((currentString[0] & 255) == 77 && (currentString[1] & 255) == 73 && (currentString[2] & 255) == 58) {
                             this.miscInfo = parseString(currentString, this.encoding);
                         }
-                        currentString = new byte[stringDataBytes.length];
-                        currentStringIndex = 0;
                     }
                     currentString = new byte[stringDataBytes.length];
                     currentStringIndex = 0;

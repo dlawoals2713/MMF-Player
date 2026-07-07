@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\898b79dd632f89eb91b6f092b9b23fc3\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
-                        "startLines": "2,5,8",
+                        "startLines": "2,6,10",
                         "startColumns": "4,4,4",
-                        "startOffsets": "55,214,385",
-                        "endLines": "4,7,10",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
                         "endColumns": "12,12,12",
-                        "endOffsets": "209,380,553"
+                        "endOffsets": "266,494,724"
                     }
                 }
             ]

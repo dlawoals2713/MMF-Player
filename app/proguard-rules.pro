@@ -1,4 +1,3 @@
--repackageclasses
--ignorewarnings
--dontwarn
--dontnote
+-keep class android.** { *; }
+-keep class androidx.** { *; }
+-keep class dev.oneuiproject.oneui.** { *; }

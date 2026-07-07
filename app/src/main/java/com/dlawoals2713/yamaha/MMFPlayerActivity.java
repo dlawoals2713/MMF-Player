@@ -2,55 +2,51 @@ package com.dlawoals2713.yamaha;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.*;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
+import android.support.v4.media.MediaMetadataCompat;
+import android.support.v4.media.session.MediaControllerCompat;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
-import android.view.View;
 import android.view.Choreographer;
-import android.widget.ImageButton;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.MenuProvider;
+import androidx.media.session.MediaButtonReceiver;
 
-import com.yamaha.smafsynth.m7.emu.*;
+import com.dlawoals2713.yamaha.databinding.ActivityMmfPlayerBinding;
+import com.yamaha.smafsynth.m7.emu.DataParsers;
+import com.yamaha.smafsynth.m7.emu.EmuSmw7;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import de.dlyt.yanndroid.oneui.layout.ToolbarLayout;
-
 public class MMFPlayerActivity extends AppCompatActivity implements View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, EmuSmw7.ChannelDataListener {
+    private ActivityMmfPlayerBinding binding;
     private static final int PICK_MMF_FILE = 1;
-
-    private ImageButton initButton;
-    private ImageButton playButton;
-    private ImageButton stopButton;
-    private ImageButton releaseButton;
-    private TextView fileNameTextView;
-    private TextView timeTextView;
-    private SeekBar progressSeekBar;
-    private SeekBar volumeSeekBar;
-    private LinearLayout content;
-
-    private TextView titleTextView;
-    private TextView artistTextView;
-    private TextView copyrightTextView;
-    private TextView genreTextView;
-    private TextView miscTextView;
 
     private EmuSmw7 emuSmw7;
     private int sampleRate = 22050;
@@ -58,26 +54,24 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     private String currentFileName;
     public DataParsers dataParser;
 
-    private ToolbarLayout toolbarLayout;
     private SharedPreferences sp;
 
     private Choreographer.FrameCallback frameCallback;
     private boolean isUpdating = false;
-    private Context context;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private Intent intent = new Intent();
+    private MediaSessionCompat mediaSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mmf_player);
+        binding = ActivityMmfPlayerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        ActivityCompat.requestPermissions(this,
-                new String[]{
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                },
-                1);
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        }, 1);
 
         sp = getSharedPreferences("setting", Activity.MODE_PRIVATE);
         currentFileName = getString(R.string.file_unselected);
@@ -85,13 +79,61 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         emuSmw7 = new EmuSmw7();
         emuSmw7.EmuSmw7Init(); // EmuSmw7 초기화
         emuSmw7.setChannelDataListener(this); // 채널 데이터 리스너 설정
-        context = this;
+
+        ComponentName mediaButtonReceiver = new ComponentName(getPackageName(), MediaButtonReceiver.class.getName());
+        mediaSession = new MediaSessionCompat(this, "MMFPlayer", mediaButtonReceiver, null);
+        mediaSession.setFlags(
+                MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
+                        MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
+
+        // MediaSession 콜백 설정 (재생, 정지 명령 처리)
+        mediaSession.setCallback(new MediaSessionCompat.Callback() {
+            @Override
+            public void onPlay() {
+                super.onPlay();
+                // 재생 버튼 클릭 시의 로직
+                if (mmfData != null && emuSmw7.getPlaybackStatus() != 2) {
+                    emuSmw7.startPlayback(mmfData, 100L, -1L, 15L, 32, 32);
+                    startPlaybackUpdates();
+                    updateButtonStates();
+                    updateMediaSessionState();
+                }
+            }
+
+            @Override
+            public void onPause() {
+                super.onPause();
+                if (emuSmw7.getPlaybackStatus() == 2) {
+                    emuSmw7.stopPlayback();
+                    stopPlaybackUpdates();
+                    updateButtonStates();
+                    updateMediaSessionState();
+                }
+            }
+        });
+
+        mediaSession.setActive(true);
+
+        try {
+            new MediaControllerCompat(this, mediaSession.getSessionToken());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Uri fileUri = getIntent().getData();
+
+        if (fileUri == null) {
+            String path = getIntent().getStringExtra("filePath");
+            if (path != null) {
+                fileUri = Uri.fromFile(new File(path));
+                Toast.makeText(this, fileUri.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+
         if (fileUri != null) {
             try {
                 currentFileName = getFileNameFromUri(fileUri);
-                fileNameTextView.setText(currentFileName);
+                binding.textFileName.setText(currentFileName);
 
                 InputStream inputStream = getContentResolver().openInputStream(fileUri);
                 if (inputStream != null) {
@@ -103,7 +145,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
                     Toast.makeText(this, getString(R.string.file_loaded, currentFileName), Toast.LENGTH_SHORT).show();
                     updateButtonStates();
-                    Log.d("MMFPlayer", "파일 URI: " + fileUri.toString());
+                    Log.d("MMFPlayer", "파일 URI: " + fileUri);
                 }
             } catch (Exception e) {
                 Toast.makeText(this, getString(R.string.file_loadError, e.getMessage()), Toast.LENGTH_SHORT).show();
@@ -115,56 +157,49 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initUI() {
-        content = findViewById(R.id.content);
+        LinearLayout content = findViewById(R.id.content);
         content.setClipChildren(false);
         content.setClipToPadding(false);
 
         sampleRate = Integer.parseInt(sp.getString("sr", "22050"));
 
-        fileNameTextView = findViewById(R.id.text_file_name);
-        fileNameTextView.setText(currentFileName);
+        binding.textFileName.setText(currentFileName);
 
-        titleTextView = findViewById(R.id.text_title);
-        artistTextView = findViewById(R.id.text_artist);
-        copyrightTextView = findViewById(R.id.text_copyright);
-        genreTextView = findViewById(R.id.text_genre);
-        miscTextView = findViewById(R.id.text_misc);
+        binding.buttonInit.setOnClickListener(this);
+        binding.buttonPlay.setOnClickListener(this);
+        binding.buttonStop.setOnClickListener(this);
+        binding.buttonRelease.setOnClickListener(this);
 
-        initButton = findViewById(R.id.button_init);
-        playButton = findViewById(R.id.button_play);
-        stopButton = findViewById(R.id.button_stop);
-        releaseButton = findViewById(R.id.button_release);
+        binding.seekbarProgress.setEnabled(false);
+        binding.seekbarVolume.setMax(127);
+        binding.seekbarVolume.setProgress(100);
+        binding.seekbarVolume.setOnSeekBarChangeListener(this);
 
-        initButton.setOnClickListener(this);
-        playButton.setOnClickListener(this);
-        stopButton.setOnClickListener(this);
-        releaseButton.setOnClickListener(this);
-
-        progressSeekBar = findViewById(R.id.seekbar_progress);
-        progressSeekBar.setEnabled(false);
-        volumeSeekBar = findViewById(R.id.seekbar_volume);
-        volumeSeekBar.setMax(127);
-        volumeSeekBar.setProgress(100);
-        volumeSeekBar.setOnSeekBarChangeListener(this);
-
-        timeTextView = findViewById(R.id.text_time);
-
-        toolbarLayout = findViewById(R.id.toolbar_view);
-        toolbarLayout.inflateToolbarMenu(R.menu.player);
-        toolbarLayout.getToolbarMenu().findItem(R.id.settings).setTitle(getString(R.string.setting));
-        toolbarLayout.setOnToolbarMenuItemClickListener(item -> {
-            int itemId = item.getItemId();  // item ID를 미리 저장해두기
-
-            if (itemId == R.id.settings) {
-                setting();
-            } else if (itemId == R.id.open) {
-                open();
-            }
-
-            return true;
-        });
+        addMenuProvider(menuProvider);
         updateButtonStates();
     }
+
+    private final MenuProvider menuProvider = new MenuProvider() {
+
+        @Override
+        public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+            menuInflater.inflate(R.menu.player, menu);
+        }
+
+        @Override
+        public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+            int id = menuItem.getItemId();
+
+            if (id == R.id.settings) {
+                setting();
+            } else if (id == R.id.open) {
+                open();
+            } else if (id == R.id.info) {
+                info();
+            }
+            return false;
+        }
+    };
 
     @Override
     public void onClick(View v) {
@@ -179,7 +214,6 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 if (sampleRate < 11025) sampleRate = 11025;
                 if (sampleRate > 48000) sampleRate = 48000;
 
-                // 기존 리소스 정리
                 if (emuSmw7 != null) {
                     emuSmw7.releaseAudioResources();
                 }
@@ -196,6 +230,8 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                 });
             } catch (NumberFormatException e) {
                 Toast.makeText(this, getString(R.string.init_error), Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if (id == R.id.button_play) {
             if (mmfData == null) {
@@ -205,20 +241,22 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
             parseAndDisplayMetadata();
             emuSmw7.startPlayback(mmfData, 100L, -1L, 15L, 32, 32);
-            emuSmw7.setPlaybackVolume(volumeSeekBar.getProgress());
+            emuSmw7.setPlaybackVolume(binding.seekbarVolume.getProgress());
 
             startPlaybackUpdates();
             updateButtonStates();
-
+            updateMediaSessionMetadata();
+            updateMediaSessionState();
         } else if (id == R.id.button_stop) {
             emuSmw7.stopPlayback();
             stopPlaybackUpdates();
             updateButtonStates();
-
+            updateMediaSessionState();
         } else if (id == R.id.button_release) {
             emuSmw7.releaseAudioResources();
             stopPlaybackUpdates();
             updateButtonStates();
+            updateMediaSessionState();
         }
     }
 
@@ -237,7 +275,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                         inputStream.close();
 
                         currentFileName = getFileName(uri);
-                        fileNameTextView.setText(currentFileName);
+                        binding.textFileName.setText(currentFileName);
 
                         parseAndDisplayMetadata();
 
@@ -268,31 +306,22 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void updateMetadataDisplay() {
-        if (dataParser != null) {
-            titleTextView.setText(getString(R.string.title, (dataParser.getTitle().isEmpty() ? getString(R.string.data_unknown) : dataParser.getTitle())));
-            artistTextView.setText(getString(R.string.artist, (dataParser.getArtistName().isEmpty() ? getString(R.string.data_unknown) : dataParser.getArtistName())));
-            copyrightTextView.setText(getString(R.string.copyright, (dataParser.getCopyrightInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getCopyrightInfo())));
-            genreTextView.setText(getString(R.string.genre, (dataParser.getGenre().isEmpty() ? getString(R.string.data_unknown) : dataParser.getGenre())));
-            miscTextView.setText(getString(R.string.etc, (dataParser.getMiscInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getMiscInfo())));
-        } else {
-            titleTextView.setText(getString(R.string.title, getString(R.string.data_unknown)));
-            artistTextView.setText(getString(R.string.artist, getString(R.string.data_unknown)));
-            copyrightTextView.setText(getString(R.string.copyright, getString(R.string.data_unknown)));
-            genreTextView.setText(getString(R.string.genre, getString(R.string.data_unknown)));
-            miscTextView.setText(getString(R.string.etc, getString(R.string.data_unknown)));
-        }
+        if (dataParser != null) binding.textTitle.setText(getString(R.string.title, (dataParser.getTitle().isEmpty() ? getString(R.string.data_unknown) : dataParser.getTitle())));
+        else binding.textTitle.setText(getString(R.string.title, getString(R.string.data_unknown)));
     }
 
     private String getFileName(Uri uri) {
         String result = null;
         if (uri.getScheme().equals("content")) {
-            try (android.database.Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
+            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
                 if (cursor != null && cursor.moveToFirst()) {
                     int nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME);
                     if (nameIndex != -1) {
                         result = cursor.getString(nameIndex);
                     }
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         if (result == null) {
@@ -310,8 +339,8 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             int cardBackground = getResources().getColor(R.color.cardBackground);
             int primaryColor = getResources().getColor(R.color.primaryColor);
             resetButtons(cardBackground);
-            initButton.setEnabled(true);
-            initButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+            binding.buttonInit.setEnabled(true);
+            binding.buttonInit.setImageTintList(ColorStateList.valueOf(primaryColor));
             return;
         }
 
@@ -325,22 +354,22 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
         switch ((int) state) {
             case 0: // 초기화되지 않음
-                initButton.setEnabled(true);
-                initButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+                binding.buttonInit.setEnabled(true);
+                binding.buttonInit.setImageTintList(ColorStateList.valueOf(primaryColor));
                 break;
             case 1: // 초기화됨 (재생 준비 상태)
                 if (mmfData != null) {
-                    playButton.setEnabled(true);
-                    playButton.setImageTintList(ColorStateList.valueOf(primaryColor));
+                    binding.buttonPlay.setEnabled(true);
+                    binding.buttonPlay.setImageTintList(ColorStateList.valueOf(primaryColor));
                 }
-                releaseButton.setEnabled(true);
-                releaseButton.setImageTintList(ColorStateList.valueOf(errorColor));
+                binding.buttonRelease.setEnabled(true);
+                binding.buttonRelease.setImageTintList(ColorStateList.valueOf(errorColor));
                 break;
             case 2: // 재생 중
-                stopButton.setEnabled(true);
-                stopButton.setImageTintList(ColorStateList.valueOf(primaryColor));
-                releaseButton.setEnabled(true);
-                releaseButton.setImageTintList(ColorStateList.valueOf(errorColor));
+                binding.buttonStop.setEnabled(true);
+                binding.buttonStop.setImageTintList(ColorStateList.valueOf(primaryColor));
+                binding.buttonRelease.setEnabled(true);
+                binding.buttonRelease.setImageTintList(ColorStateList.valueOf(errorColor));
                 break;
         }
     }
@@ -348,17 +377,17 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
     private void resetButtons(int defaultColor) {
         ColorStateList defaultTint = ColorStateList.valueOf(defaultColor);
 
-        initButton.setEnabled(false);
-        initButton.setImageTintList(defaultTint);
+        binding.buttonInit.setEnabled(false);
+        binding.buttonInit.setImageTintList(defaultTint);
 
-        playButton.setEnabled(false);
-        playButton.setImageTintList(defaultTint);
+        binding.buttonPlay.setEnabled(false);
+        binding.buttonPlay.setImageTintList(defaultTint);
 
-        stopButton.setEnabled(false);
-        stopButton.setImageTintList(defaultTint);
+        binding.buttonStop.setEnabled(false);
+        binding.buttonStop.setImageTintList(defaultTint);
 
-        releaseButton.setEnabled(false);
-        releaseButton.setImageTintList(defaultTint);
+        binding.buttonRelease.setEnabled(false);
+        binding.buttonRelease.setImageTintList(defaultTint);
     }
 
     private void startPlaybackUpdates() {
@@ -373,20 +402,16 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
                     long length = emuSmw7.getAudioLength();
 
                     if (length > 0) {
-                        progressSeekBar.setMax((int) length);
-                        progressSeekBar.setProgress((int) position);
+                        binding.seekbarProgress.setMax((int) length);
+                        binding.seekbarProgress.setProgress((int) position);
 
-                        timeTextView.setText(
-                                formatTime(position) + " / " + formatTime(length));
+                        binding.textTime.setText(formatTime(position) + " / " + formatTime(length));
                     }
                 }
 
-                if (isUpdating) {
-                    Choreographer.getInstance().postFrameCallback(this);
-                }
+                if (isUpdating) Choreographer.getInstance().postFrameCallback(this);
             }
         };
-
         Choreographer.getInstance().postFrameCallback(frameCallback);
     }
 
@@ -407,14 +432,13 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if (seekBar == volumeSeekBar && emuSmw7 != null) {
+        if (seekBar == binding.seekbarVolume && emuSmw7 != null) {
             emuSmw7.setPlaybackVolume(progress);
         }
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {}
-
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {}
 
@@ -426,7 +450,10 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
             emuSmw7.releaseAudioResources();
         }
         stopPlaybackUpdates();
-
+        if (mediaSession != null) {
+            mediaSession.setActive(false);
+            mediaSession.release();
+        }
         if (executorService != null && !executorService.isShutdown()) {
             executorService.shutdownNow();
         }
@@ -444,6 +471,25 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         startActivityForResult(intent, PICK_MMF_FILE);
     }
 
+    private void info() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        if (dataParser != null) {
+            dialog.setTitle(dataParser.getTitle().isEmpty() ? getString(R.string.data_unknown) : dataParser.getTitle());
+            dialog.setMessage(getString(R.string.artist, (dataParser.getArtistName().isEmpty() ? getString(R.string.data_unknown) : dataParser.getArtistName())) + "\n" +
+                    getString(R.string.copyright, (dataParser.getCopyrightInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getCopyrightInfo())) + "\n" +
+                    getString(R.string.genre, (dataParser.getGenre().isEmpty() ? getString(R.string.data_unknown) : dataParser.getGenre())) + "\n" +
+                    getString(R.string.etc, (dataParser.getMiscInfo().isEmpty() ? getString(R.string.data_unknown) : dataParser.getMiscInfo())));
+        } else {
+            dialog.setTitle(getString(R.string.data_unknown));
+            dialog.setMessage(getString(R.string.artist, (getString(R.string.data_unknown))) + "\n" +
+                    getString(R.string.copyright, (getString(R.string.data_unknown))) + "\n" +
+                    getString(R.string.genre, (getString(R.string.data_unknown))) + "\n" +
+                    getString(R.string.etc, (getString(R.string.data_unknown))));
+        }
+        dialog.setPositiveButton("확인", null);
+        dialog.show();
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -452,10 +498,7 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
 
     private String getFileNameFromUri(Uri uri) {
         String displayName = "";
-        try (Cursor cursor = getContentResolver().query(
-                uri,
-                new String[]{DocumentsContract.Document.COLUMN_DISPLAY_NAME},
-                null, null, null)) {
+        try (Cursor cursor = getContentResolver().query(uri, new String[]{DocumentsContract.Document.COLUMN_DISPLAY_NAME},null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
                 displayName = cursor.getString(0);
             }
@@ -466,11 +509,39 @@ public class MMFPlayerActivity extends AppCompatActivity implements View.OnClick
         return displayName;
     }
 
-    // ChannelDataListener 구현
     @Override
-    public void onChannelDataReady(int leftChannelValue, int rightChannelValue) {
-        // 여기에 오디오 채널 데이터를 처리하는 코드를 추가할 수 있습니다.
-        // 예: 시각화 업데이트 등
-        // Log.d("ChannelData", "Left: " + leftChannelValue + ", Right: " + rightChannelValue);
+    public void onChannelDataReady(int leftChannelValue, int rightChannelValue) {}
+
+    private void updateMediaSessionState() {
+        int state = (int) emuSmw7.getPlaybackStatus();
+        PlaybackStateCompat.Builder stateBuilder = new PlaybackStateCompat.Builder().setActions(
+                PlaybackStateCompat.ACTION_PLAY |
+                        PlaybackStateCompat.ACTION_PAUSE |
+                        PlaybackStateCompat.ACTION_PLAY_PAUSE |
+                        PlaybackStateCompat.ACTION_STOP
+        );
+
+        switch (state) {
+            case 1: // 초기화됨 (일시정지 상태로 간주)
+                stateBuilder.setState(PlaybackStateCompat.STATE_PAUSED, emuSmw7.getCurrentPlaybackPosition(), 1.0f);
+                break;
+            case 2: // 재생 중
+                stateBuilder.setState(PlaybackStateCompat.STATE_PLAYING, emuSmw7.getCurrentPlaybackPosition(), 1.0f);
+                break;
+            case 0: // 초기화되지 않음 (정지 상태로 간주)
+            default:
+                stateBuilder.setState(PlaybackStateCompat.STATE_STOPPED, 0, 1.0f);
+                break;
+        }
+        mediaSession.setPlaybackState(stateBuilder.build());
+    }
+
+    private void updateMediaSessionMetadata() {
+        MediaMetadataCompat.Builder metadataBuilder = new MediaMetadataCompat.Builder()
+                .putString(MediaMetadataCompat.METADATA_KEY_TITLE, dataParser != null && !dataParser.getTitle().isEmpty() ? dataParser.getTitle() : currentFileName)
+                .putString(MediaMetadataCompat.METADATA_KEY_ARTIST, dataParser != null && !dataParser.getArtistName().isEmpty() ? dataParser.getArtistName() : getString(R.string.data_unknown))
+                .putLong(MediaMetadataCompat.METADATA_KEY_DURATION, emuSmw7 != null ? emuSmw7.getAudioLength() : 0);
+
+        mediaSession.setMetadata(metadataBuilder.build());
     }
 }

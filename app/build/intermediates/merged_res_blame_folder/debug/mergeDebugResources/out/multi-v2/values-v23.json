@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-v23/values-v23.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-v23/values-v23.xml",
             "map": [
+                {
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\54a4c9ee105a83c3aced3721c6ab6dd9\\transformed\\material-1.12.0+1.0.39-sesl7+rev7\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,9,13,16,19,22,25,28,32",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
+                        "endLines": "4,8,12,15,18,21,24,27,31,35",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
+                    },
+                    "to": {
+                        "startLines": "37,40,44,48,52,55,58,61,64,68",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1673,1889,2031,2192,2500,2707,2914,3117,3319,3584",
+                        "endLines": "39,43,47,50,54,57,60,63,67,71",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "1884,2026,2187,2397,2702,2909,3112,3314,3579,3852"
+                    }
+                },
                 {
                     "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\77a733bcb0c5f0acd1891d9bb3a3ca38\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
                     "from": {
@@ -14,42 +33,31 @@
                         "endOffsets": "200"
                     },
                     "to": {
-                        "startLines": "50",
+                        "startLines": "34",
                         "startColumns": "4",
-                        "startOffsets": "3232",
-                        "endLines": "52",
+                        "startOffsets": "1523",
+                        "endLines": "36",
                         "endColumns": "12",
-                        "endOffsets": "3377"
+                        "endOffsets": "1668"
                     }
                 },
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\898b79dd632f89eb91b6f092b9b23fc3\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\f419c9ef7ebf2d73f3729604ccb3578e\\transformed\\appcompat-1.7.1+1.0.47000-sesl7+rev2\\res\\values-v23\\values-v23.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
-                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
-                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
-                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\81335119a568adab27dfc9fa2e61a412\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
-                    "from": {
-                        "startLines": "2,5,9,13,16,19,22,25,28,32",
+                        "startLines": "2,3,4,8,18,19,22,26,30,34",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,271,413,574,784,991,1198,1401,1603,1868",
-                        "endLines": "4,8,12,15,18,21,24,27,31,35",
-                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
-                        "endOffsets": "266,408,569,779,986,1193,1396,1598,1863,2136"
+                        "startOffsets": "55,130,217,318,461,588,810,1042,1286,1523",
+                        "endLines": "2,3,7,17,18,21,25,29,33,34",
+                        "endColumns": "74,86,12,12,126,12,12,12,12,97",
+                        "endOffsets": "125,212,313,456,583,805,1037,1281,1518,1616"
                     },
                     "to": {
-                        "startLines": "53,56,60,64,67,70,73,76,79,83",
+                        "startLines": "2,3,4,8,18,19,22,26,30,51",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3382,3598,3740,3901,4111,4318,4525,4728,4930,5195",
-                        "endLines": "55,59,63,66,69,72,75,78,82,86",
-                        "endColumns": "10,10,10,10,10,10,10,10,10,10",
-                        "endOffsets": "3593,3735,3896,4106,4313,4520,4723,4925,5190,5463"
+                        "startOffsets": "55,130,217,318,461,588,810,1042,1286,2402",
+                        "endLines": "2,3,7,17,18,21,25,29,33,51",
+                        "endColumns": "74,86,12,12,126,12,12,12,12,97",
+                        "endOffsets": "125,212,313,456,583,805,1037,1281,1518,2495"
                     }
                 }
             ]

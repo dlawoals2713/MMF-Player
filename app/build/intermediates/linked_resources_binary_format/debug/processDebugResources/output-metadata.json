@@ -8,12 +8,17 @@
   "variantName": "debug",
   "elements": [
     {
-      "type": "SINGLE",
-      "filters": [],
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
       "attributes": [],
       "versionCode": 1,
-      "versionName": "1.7",
-      "outputFile": "linked-resources-binary-format-debug.ap_"
+      "versionName": "1.8",
+      "outputFile": "linked-resources-binary-format-arm64-v8aDebug.ap_"
     }
   ],
   "elementType": "File"

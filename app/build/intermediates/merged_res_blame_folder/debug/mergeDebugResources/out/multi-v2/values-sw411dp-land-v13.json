@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-30:/values-sw411dp-land-v13/values-sw411dp-land-v13.xml",
+            "outputFile": "com.dlawoals2713.yamaha.app-mergeDebugResources-68:/values-sw411dp-land-v13/values-sw411dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\39bc16aa1fc63d996f2550890cd5ff83\\transformed\\jetified-oneui-2.4.1\\res\\values-sw411dp-land-v13\\values-sw411dp-land-v13.xml",
+                    "source": "C:\\Users\\dlawo\\.gradle\\caches\\8.9\\transforms\\64af0cac73350595d3d35f6e04843ad2\\transformed\\jetified-picker-color-1.0.19+1.0.19-sesl7+rev0\\res\\values-sw411dp-land-v13\\values-sw411dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,133,210,282,368,435,515,595,673,749,832",
-                        "endColumns": "77,76,71,85,66,79,79,77,75,82,72",
-                        "endOffsets": "128,205,277,363,430,510,590,668,744,827,900"
+                        "startOffsets": "55,130,204,273,358,422,499,576,651,724,801",
+                        "endColumns": "74,73,68,84,63,76,76,74,72,76,69",
+                        "endOffsets": "125,199,268,353,417,494,571,646,719,796,866"
                     }
                 }
             ]

@@ -8,12 +8,17 @@
   "variantName": "debug",
   "elements": [
     {
-      "type": "SINGLE",
-      "filters": [],
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
       "attributes": [],
       "versionCode": 1,
-      "versionName": "1.7",
-      "outputFile": "app-debug.apk"
+      "versionName": "1.8",
+      "outputFile": "app-arm64-v8a-debug.apk"
     }
   ],
   "elementType": "File",
